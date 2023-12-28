@@ -23,7 +23,7 @@ function setRoutes() {
     settingFunc(page.path, server)
   }
 
-  server.listen(3000, (err, address) => {
+  server.listen(3000, '127.0.0.1', (err, address) => {
     if (err) throw err;
     console.log(`server listening on ${address}`)
   })
