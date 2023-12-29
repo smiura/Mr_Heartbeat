@@ -8,6 +8,12 @@ let heartbeat = 0
 let datetime = new Date()
 
 function ServerSetting(entryPath: string, server: FastifyInstance) {
+  sensor.on('detached', function() {
+    heartbeat = 0
+    datetime = new Date()
+    sensor.attach(0, 0)
+  });
+
   sensor.on('hbData', function (data: any) {
     if (settings.deviceID == null ||
       settings.deviceID == data.DeviceID) {
